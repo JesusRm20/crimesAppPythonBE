@@ -1,0 +1,7 @@
+pip
+Flask
+requests
+sqlalchemy
+passlib
+flask_cors
+pyjwt
