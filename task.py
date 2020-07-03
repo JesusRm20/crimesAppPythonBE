@@ -70,9 +70,9 @@ def loadCrimesOutcome(id):
 
 def getStreestLevelCrimes(date=None):
     if date:
-        result = session.query(crimeClasses.streetLevelCrimes).filter_by(month=date).limit(30)
+        result = session.query(crimeClasses.streetLevelCrimes).filter_by(month=date).limit(300)
     else:
-        result = session.query(crimeClasses.streetLevelCrimes).order_by(crimeClasses.streetLevelCrimes.month).limit(30)
+        result = session.query(crimeClasses.streetLevelCrimes).limit(300)
 
     out = []
     for i in result:
