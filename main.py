@@ -31,10 +31,11 @@ def loadCrimes():
 @app.route('/login', methods=['POST'])
 def login():
     usr = json.loads((request.data.decode('utf-8')))
-
-    resp = userClasses.getUser(usr['userName'])
+    print(usr['userName'].strip())
+    resp = userClasses.getUser(usr['userName'].strip())
+    print(resp)
     if resp != '':
-        ver = passwordHash.passwordCheck(usr['password'], resp['password'].strip()) 
+        ver = passwordHash.passwordCheck(usr['password'].strip(), resp['password'].strip()) 
         del resp['password']
         if ver:
             return {'val': 'true', 'token': userClasses.genToken(resp).decode('utf-8')}
